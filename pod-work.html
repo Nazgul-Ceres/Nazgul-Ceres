@@ -153,12 +153,94 @@ totalOfBookPrices();
 
 
 // Bev's work
+//     map filter reduce bonus
+    // PROBLEM 6 - take in an array of pets and return an array of the length of first names for pugs only
+    // your output for the given input should be [3, 6] for 'Bud' and 'Bowser'
 
 
-// Luis' work
+
+    // const pugs = pets.filter(pets => {
+    //     if (pets.breed === 'Pug') {
+    //         return pets
+    //     }
+    // }, );
+    //
+    // const firstNameLength = pugs.map (pugs => {
+    //     return pugs.name.length
+    // });
+    //
+    // console.log(firstNameLength);
+
+
+    const number6 = ()  => {
+        const pugs = pets.filter(pets => {
+            if (pets.breed === 'Pug') {
+                return pets
+            }
+        },);
+
+         firstNameLength = pugs.map(pugs => {
+            return pugs.name.length
+        });
+        return firstNameLength
+
+    };
+    console.log(number6(pets));
+
+    // 101 exercises #86
+    // Write a function definition named addOneToArray that adds one to every number in an array
+    //used example in curriculum was having problems refactoring with es6 (I needed to add a return)
+
+    let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // function addOneToArray(arr){
+    //   var newArr = [];
+    //   arr.forEach(function(num){
+    //     newArr.push(num + 1);
+    //   })
+    //    return newArr;
+    // }
+    const addOneToArray = arr => {
+         incremented = arr.map(function(n) {
+            return n + 1;
+        });
+        return incremented
+    };
+
+    console.log(addOneToArray(arr));
+
+
+    // Exercise 77
+    // Write a function definition named onlyPositiveEvens that takes in sequence of numbers and returns an array containing all the positive evens from the sequence
+
+
+
+    // function onlyPositiveEvens(numbers){
+    //  var posEvens = []
+    //  numbers.forEach(function(number){
+    //    if(isPositiveEven(number)){
+    //      posEvens.push(number)
+    //  }
+
+    //  })
+    //    return posEvens
+    // }
+
+    const onlyPositiveEvens = (numbers)  => {
+
+        const newarray = numbers.filter(numbers => isPositiveEven(numbers));
+        console.log(newarray);
+        return newarray;
+
+    };
+
+
+
+    // Luis' work
+
 
 // REDUCE
 //     https://www.skptricks.com/2018/11/learn-to-chain-map-filter-and-reduce-in-javascript.html
+>>>>>>> 0d83c94c00a92ff3a67b34056ce6f14a8e1a3d3d
 const avgAge = customers.reduce((total, customer) => {
 return total + customer.age;
 }, 0);
