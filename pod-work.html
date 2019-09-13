@@ -67,13 +67,96 @@
             age: 32,
         },
     ];
+    const shoppingCart = {
+        "tax": .08,
+        "items": [
+            {
+                "title": "orange juice",
+                "price": 3.99,
+                "quantity": 1
+            },
+            {
+                "title": "rice",
+                "price": 1.99,
+                "quantity": 3
+            },
+            {
+                "title": "beans",
+                "price": 0.99,
+                "quantity": 3
+            },
+            {
+                "title": "chili sauce",
+                "price": 2.99,
+                "quantity": 1
+            },
+            {
+                "title": "chocolate",
+                "price": 0.75,
+                "quantity": 9
+            }
+        ]
+    };
+
+
 // Jason's work
+
+
+    //    map, filter, reduce bonus       //
+// PROBLEM 2 - create array of user objects based on the customers array
+// of objects (each user object should just have name and age properties)
+
+    let nameAndAgeObject = customers.map(user => user.name + ", " + user.age);
+    console.log(nameAndAgeObject);
+
+// PROBLEM 3 - create an array of civil servant customers (teachers and police officers)
+// containing the same properties as the objects on the customers objects
+    let arrOfCivilServiceEmp = customers.filter((user, i) => {
+        if (i < customers.length - 1) {
+            return customers.slice(0, 2);
+        }
+    });
+    // console.log(arrOfCivilServiceEmp);
+
+//    refactored 101 functions with map, reduce, filter     //
+
+// // Exercise 92
+// // Write a function named totalOfBookPrices that takes in a array of objects and returns the sum total of all the book prices added together
+
+// function totalOfBookPrices (arr) {
+//   var price = 0;
+//   arr.forEach(function(obj){
+//     price += obj.price;
+//   })
+//   return price;
+// }
+    const totalOfBookPrices = () => {
+        const arr = books.reduce((totalPrice, book) => totalPrice + book.price, 0);
+        console.log(totalOfBookPrices());
+        return arr;
+    };
+totalOfBookPrices();
+
+// Exercise 99
+// Write a function named getAverageItemPrice that takes in the shopping cart as an input and returns the average of all the item prices.
+
+// function getAverageItemPrice(shoppingCart){
+//   var prices = 0;
+//   shoppingCart.items.forEach(function(item){
+//     prices += item.price;
+//   })
+//   return prices / shoppingCart.items.length;
+// }
+
+    let getAverageItemPrice = shoppingCart.items.reduce((totalItemPrice, item) => totalItemPrice + item.price,0);
+    console.log(getAverageItemPrice / shoppingCart.items.length);
 
 
 // Bev's work
 //     map filter reduce bonus
     // PROBLEM 6 - take in an array of pets and return an array of the length of first names for pugs only
     // your output for the given input should be [3, 6] for 'Bud' and 'Bowser'
+
 
 
     // const pugs = pets.filter(pets => {
@@ -153,11 +236,64 @@
 
 
     // Luis' work
-// PROBLEM 4 - determine the average age of customers
+
+
+// REDUCE
+//     https://www.skptricks.com/2018/11/learn-to-chain-map-filter-and-reduce-in-javascript.html
+>>>>>>> 0d83c94c00a92ff3a67b34056ce6f14a8e1a3d3d
 const avgAge = customers.reduce((total, customer) => {
 return total + customer.age;
 }, 0);
 console.log(avgAge/ customers.length);
+
+// FILTER
+//     https://java.codeup.com/javascript-ii/map-filter-reduce/
+    var numbers = [2.5, 5, 7.5, 10, 12.5, 15];
+
+    var fives = numbers.filter(function(n) {
+        return n % 5 === 0;
+    });
+    console.log(fives); // [5, 10, 15]
+
+// SAME SOURCE FROM ABOVE, MADE MY OWN PROBLEM
+    var cars = [
+        {
+            make: "BMW",
+            model: "i8",
+            color: "Alpine White",
+            year: "2016"
+        },
+        {
+            make: "Lexus",
+            model: "IS350",
+            color: "Structural Blue",
+            year: "2019"
+        },
+        {
+            make: "Audi",
+            model: "R8",
+            color: "Monsoon Gray Metallic",
+            year: "2015"
+        }
+    ];
+    var newerModel = cars.filter(function(c){
+       return c.year > 2015;
+    });
+    console.log(newerModel); // all but Audi
+
+// MAP
+// REFACTORED TO ES6 FROM 101 FUNCTIONS
+    // Write a function definition named elementsTimesTwo that takes in an array of numbers and returns an array with each value multiplied by 2.
+    var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // function elementsTimesTwo(numbers){
+    //
+    //     for(var i=0; i< numbers.length; i++) {
+    //         numbers[i] *= 2;
+    //     }
+    //     return numbers
+    // }
+    const elementsTimesTwo = numbers.map((number) => number * 2);
+    console.log(elementsTimesTwo); // 2,4,6,8,10,12,14,16,18,20
 </script>
 </body>
 </html>
