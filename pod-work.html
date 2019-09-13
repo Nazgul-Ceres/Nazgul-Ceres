@@ -156,11 +156,62 @@ totalOfBookPrices();
 
 
 // Luis' work
-// PROBLEM 4 - determine the average age of customers
+
+// REDUCE
+//     https://www.skptricks.com/2018/11/learn-to-chain-map-filter-and-reduce-in-javascript.html
 const avgAge = customers.reduce((total, customer) => {
 return total + customer.age;
 }, 0);
-// console.log(avgAge/ customers.length);
+console.log(avgAge/ customers.length);
+
+// FILTER
+//     https://java.codeup.com/javascript-ii/map-filter-reduce/
+    var numbers = [2.5, 5, 7.5, 10, 12.5, 15];
+
+    var fives = numbers.filter(function(n) {
+        return n % 5 === 0;
+    });
+    console.log(fives); // [5, 10, 15]
+
+// SAME SOURCE FROM ABOVE, MADE MY OWN PROBLEM
+    var cars = [
+        {
+            make: "BMW",
+            model: "i8",
+            color: "Alpine White",
+            year: "2016"
+        },
+        {
+            make: "Lexus",
+            model: "IS350",
+            color: "Structural Blue",
+            year: "2019"
+        },
+        {
+            make: "Audi",
+            model: "R8",
+            color: "Monsoon Gray Metallic",
+            year: "2015"
+        }
+    ];
+    var newerModel = cars.filter(function(c){
+       return c.year > 2015;
+    });
+    console.log(newerModel); // all but Audi
+
+// MAP
+// REFACTORED TO ES6 FROM 101 FUNCTIONS
+    // Write a function definition named elementsTimesTwo that takes in an array of numbers and returns an array with each value multiplied by 2.
+    var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // function elementsTimesTwo(numbers){
+    //
+    //     for(var i=0; i< numbers.length; i++) {
+    //         numbers[i] *= 2;
+    //     }
+    //     return numbers
+    // }
+    const elementsTimesTwo = numbers.map((number) => number * 2);
+    console.log(elementsTimesTwo); // 2,4,6,8,10,12,14,16,18,20
 </script>
 </body>
 </html>
