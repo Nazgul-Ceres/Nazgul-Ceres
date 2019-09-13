@@ -67,7 +67,89 @@
             age: 32,
         },
     ];
+    const shoppingCart = {
+        "tax": .08,
+        "items": [
+            {
+                "title": "orange juice",
+                "price": 3.99,
+                "quantity": 1
+            },
+            {
+                "title": "rice",
+                "price": 1.99,
+                "quantity": 3
+            },
+            {
+                "title": "beans",
+                "price": 0.99,
+                "quantity": 3
+            },
+            {
+                "title": "chili sauce",
+                "price": 2.99,
+                "quantity": 1
+            },
+            {
+                "title": "chocolate",
+                "price": 0.75,
+                "quantity": 9
+            }
+        ]
+    };
+
+
 // Jason's work
+
+
+    //    map, filter, reduce bonus       //
+// PROBLEM 2 - create array of user objects based on the customers array
+// of objects (each user object should just have name and age properties)
+
+    let nameAndAgeObject = customers.map(user => user.name + ", " + user.age);
+    console.log(nameAndAgeObject);
+
+// PROBLEM 3 - create an array of civil servant customers (teachers and police officers)
+// containing the same properties as the objects on the customers objects
+    let arrOfCivilServiceEmp = customers.filter((user, i) => {
+        if (i < customers.length - 1) {
+            return customers.slice(0, 2);
+        }
+    });
+    // console.log(arrOfCivilServiceEmp);
+
+//    refactored 101 functions with map, reduce, filter     //
+
+// // Exercise 92
+// // Write a function named totalOfBookPrices that takes in a array of objects and returns the sum total of all the book prices added together
+
+// function totalOfBookPrices (arr) {
+//   var price = 0;
+//   arr.forEach(function(obj){
+//     price += obj.price;
+//   })
+//   return price;
+// }
+    const totalOfBookPrices = () => {
+        const arr = books.reduce((totalPrice, book) => totalPrice + book.price, 0);
+        console.log(totalOfBookPrices());
+        return arr;
+    };
+totalOfBookPrices();
+
+// Exercise 99
+// Write a function named getAverageItemPrice that takes in the shopping cart as an input and returns the average of all the item prices.
+
+// function getAverageItemPrice(shoppingCart){
+//   var prices = 0;
+//   shoppingCart.items.forEach(function(item){
+//     prices += item.price;
+//   })
+//   return prices / shoppingCart.items.length;
+// }
+
+    let getAverageItemPrice = shoppingCart.items.reduce((totalItemPrice, item) => totalItemPrice + item.price,0);
+    console.log(getAverageItemPrice / shoppingCart.items.length);
 
 
 // Bev's work
@@ -78,7 +160,7 @@
 const avgAge = customers.reduce((total, customer) => {
 return total + customer.age;
 }, 0);
-console.log(avgAge/ customers.length);
+// console.log(avgAge/ customers.length);
 </script>
 </body>
 </html>
